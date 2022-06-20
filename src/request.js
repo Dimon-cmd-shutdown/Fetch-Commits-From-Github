@@ -1,7 +1,7 @@
 const { Octokit } = require('@octokit/core')
 
 const octokit = new Octokit({
-    auth: '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'
+    auth: process.env.TOKEN
 })
 
 const octokitSet = async () => {
@@ -17,6 +17,8 @@ octokitSet().then((response) => {
 }).catch((error) => {
     console.log('ERROR!')
 })
+
+module.exports = octokitSet()
 
 
 
