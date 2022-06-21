@@ -4,20 +4,26 @@ const { buildSchema } = require('graphql')
 
 const schema = buildSchema(`
 
-    type Request {
-        id: ID
+    type Commit {
         sha: String
         message: String
         html_url: String
-        commiter_info:[Info]
+        commiter_info:CommiterInfo
         date: String
     }
 
-    type Info {
+    type CommiterInfo {
         login: String
         id: ID
+        node_id: String
+        html_url: String
+        repos_url: String
+        type: String
     }
 
+    type Query{
+        getAllCommits: [Commit]
+    }
 
 `)
 

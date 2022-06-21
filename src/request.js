@@ -5,20 +5,14 @@ const octokit = new Octokit({
 })
 
 const octokitSet = async () => {
-    const response = await octokit.request('GET /repos/Dimon-cmd-shutdown/chat-app/commits', {
-        owner: 'Dimon-cmd-shutdown',
-        repo: 'chat-app'
+    const response = await octokit.request('GET https://api.github.com/search/commits?q=test repo:facebook/facebook', {
+        // owner: 'Dimon-cmd-shutdown',
+        // repo: 'chat-app'
     })
     return response
 }
 
-octokitSet().then((response) => {
-    console.log(response.data)
-}).catch((error) => {
-    console.log('ERROR!')
-})
-
-module.exports = octokitSet()
+module.exports = octokitSet
 
 
 
