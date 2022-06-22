@@ -6,8 +6,6 @@ const octokit = new Octokit({
 
 const octokitSet = async () => {
     const response = await octokit.request('GET https://api.github.com/search/commits?q=test repo:facebook/facebook', {
-        // owner: 'Dimon-cmd-shutdown',
-        // repo: 'chat-app'
     })
     return response
 }
