@@ -33,6 +33,7 @@ const root = {
     },
 
     getSeveralCommits: ({ first }) => {
+        firstCommitsStorage.length = 0
         for (let i = 0; i < first; i++) {
             firstCommitsStorage.push(commitsStorage[i])
         }
