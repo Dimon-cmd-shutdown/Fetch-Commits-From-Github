@@ -7,29 +7,36 @@ const commitsFetch = require('./helpFunctions/commitsFetchFunc')
 const dateParse = require('./helpFunctions/dateParseFunc')
 
 const commitsStorage = []
+const firstCommitsStorage = []
 //sha, message, html url, commiter info, date.
-
-
-octokitSet().then(({ data }) => {
-
-    commitsFetch(data.items, commitsStorage)
-
-}).catch((error) => {
-    throw new Error(error)
-})
-
-
 
 const app = express()
 const PORT = process.env.PORT || 3000
 
 app.use(cors())
 
-
 const root = {
+
+    fetchCommits: () => {
+        octokitSet().then(({ data }) => {
+
+            commitsFetch(data.items, commitsStorage)
+
+        }).catch((error) => {
+            throw new Error(error)
+        })
+        return [{ status: 'Fetched' }]
+    },
 
     getAllCommits: () => {
         return commitsStorage
+    },
+
+    getSeveralCommits: ({ first }) => {
+        for (let i = 0; i < first; i++) {
+            firstCommitsStorage.push(commitsStorage[i])
+        }
+        return firstCommitsStorage
     }
 }
 

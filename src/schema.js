@@ -12,6 +12,10 @@ const schema = buildSchema(`
         date: String
     }
 
+    type Status{
+        status: String
+    }
+
     type CommiterInfo {
         login: String
         id: ID
@@ -22,7 +26,9 @@ const schema = buildSchema(`
     }
 
     type Query{
+        fetchCommits: [Status]
         getAllCommits: [Commit]
+        getSeveralCommits(first:Int!): [Commit]
     }
 
 `)
