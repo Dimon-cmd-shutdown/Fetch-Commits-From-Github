@@ -12,7 +12,15 @@ const schema = buildSchema(`
         date: String
     }
 
-    type Status{
+    type UserStatus{
+        status: String
+    }
+
+    type UserAuthStatus{
+        status: String
+    }
+
+    type FetchStatus{
         status: String
     }
 
@@ -25,10 +33,27 @@ const schema = buildSchema(`
         type: String
     }
 
+    type hello{
+        message: String
+    }
+
+    input SignUp{
+        username: String!
+        password: String!
+    }
+
+    input Auth{
+        username: String!
+        password: String!
+    }
+
     type Query{
-        fetchCommits: [Status]
+        signUpUser(input: SignUp): [UserStatus] 
+        isAuthUser(input: Auth): [UserAuthStatus]
+        fetchCommits: [FetchStatus]
         getAllCommits: [Commit]
         getSeveralCommits(first:Int!): [Commit]
+        helloWorld: [hello]
     }
 
 `)
