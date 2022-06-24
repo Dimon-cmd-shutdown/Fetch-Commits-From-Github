@@ -36,6 +36,7 @@ const root = {
         isAuthUser((JWTstorage) => {
             console.log(JWTstorage)
         })
+        return [{ status: 'Authorized' }]
     },
 
     fetchCommits: () => {
