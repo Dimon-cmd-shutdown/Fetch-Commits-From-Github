@@ -20,7 +20,8 @@
         "jsonwebtoken": "^8.5.1",
         "node-fetch": "^2.6.7",
         "postman-request": "^2.88.1-postman.31",
-        "sqlite3": "^5.0.8"
+        "sqlite3": "^5.0.8",
+        "yargs": "^17.5.1"
     },
     "devDependencies": {
         "@octokit/core": "^3.6.0",
